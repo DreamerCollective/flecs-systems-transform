@@ -1,4 +1,4 @@
-#include <flecs_systems_transform.h>
+#include <flecs/flecs-systems-transform/include/flecs_systems_transform.h>
 
 void EcsAddTransform3(ecs_iter_t *it) {
     ecs_world_t *world = it->world;
@@ -22,7 +22,7 @@ void EcsApplyTransform3(ecs_iter_t *it) {
 
         // Table has changed, populate fields so that we can run the system
         // code as usual
-        ecs_query_populate(it);
+        ecs_query_populate(it, false);
 
         EcsTransform3 *m = ecs_field(it, EcsTransform3, 1);
         EcsTransform3 *m_parent = ecs_field(it, EcsTransform3, 2);
